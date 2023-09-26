@@ -1,0 +1,28 @@
+{
+    "name": "diego/ddd_laravel",
+    "autoload": {
+        "psr-4": {
+            "Core\\": "src/Core"
+        }
+    },
+    "authors": [
+        {
+            "name": "Diego Candido",
+            "email": "luka.poke9@gmail.com"
+        }
+    ],
+    "require-dev": {
+        "mockery/mockery": "^1.6",
+        "pestphp/pest": "^2.19",
+        "pestphp/pest-plugin-type-coverage": "^2.2"
+    },
+    "config": {
+        "allow-plugins": {
+            "pestphp/pest-plugin": true
+        }
+    },
+    "scripts": {
+        "test": "./vendor/bin/pest",
+        "test:coverage": "./vendor/bin/pest --type-coverage"
+    }
+}
