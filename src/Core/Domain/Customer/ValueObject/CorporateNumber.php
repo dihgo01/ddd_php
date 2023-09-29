@@ -15,7 +15,7 @@ class CorporateNumber
         $this->validate();
     }
 
-    public function validate(): void
+    protected function validate()
     {
        DomainValidation::validateCorporateNumber($this->corporate_number);
     }

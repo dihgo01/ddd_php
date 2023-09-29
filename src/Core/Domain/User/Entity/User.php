@@ -19,8 +19,8 @@ class User
         protected string $email,
         protected string $password,
         protected string $is_blocked,
-        protected string $path_profile_photo = '',
         protected string $customer_id = '',
+        protected string $path_profile_photo = '',
     ) {
         $this->validate();
     }
@@ -57,12 +57,13 @@ class User
         $this->validate();
     }
 
-    public function validate(): void
+    protected function validate()
     {
         $valide_type = ['Licy', 'Cliente'];
         $valide_is_root = ['Sim', 'Não'];
         $valide_is_blocked = ['Desativado', 'Ativado'];
 
+        DomainValidation::notNull($this->id, "The id field is required");
         DomainValidation::validateUuid($this->uuid, "The uuid field is required");
         DomainValidation::validateEmail($this->email, "The email field is required");
         DomainValidation::notNullAndStringMinChar($this->name, "The name field is required and must be at least 3 characters");

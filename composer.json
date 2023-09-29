@@ -14,7 +14,8 @@
     "require-dev": {
         "mockery/mockery": "^1.6",
         "pestphp/pest": "^2.19",
-        "pestphp/pest-plugin-type-coverage": "^2.2"
+        "pestphp/pest-plugin-type-coverage": "^2.2",
+        "pestphp/pest-plugin-faker": "^2.0"
     },
     "config": {
         "allow-plugins": {

@@ -35,9 +35,20 @@ class DomainValidation
         }
     }
 
+    public static function validatePhone(string $value, string $exceptMessage = null)
+    {
+        $phone = preg_replace("/[^0-9]/", "", $value);
+
+        if (empty($value) || strlen($phone) < 10) {
+            throw new EntityValidationException($exceptMessage ?? "Please enter a valid phone");
+        }
+    }
+
     public static function validateZipCode(string $value, string $exceptMessage = null)
     {
-        if (empty($value) || strlen($value) < 8) {
+        $zipcode = preg_replace("/[^0-9]/", "", $value);
+
+        if (empty($value) || strlen($zipcode) < 8) {
             throw new EntityValidationException($exceptMessage ?? "Please enter a valid zip code");
         }
     }
@@ -49,8 +60,7 @@ class DomainValidation
         }
 
         $cnpj = preg_replace("/[^0-9]/", "", $value);
-        $cnpj = str_pad($cnpj, 14, '0', STR_PAD_LEFT);
-
+        
         if (strlen($cnpj) != 14) {
             throw new EntityValidationException($exceptMessage ?? "The corporate number field is not valid");
         }
